@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { auth } from "~/server/auth";
 import { db } from "~/server/db";
-import type { DailyVoteCount } from "@prisma/client";
 
 export async function POST(req: Request) {
   try {

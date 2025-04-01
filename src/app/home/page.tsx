@@ -8,6 +8,17 @@ import { db } from "~/server/db";
 import { RepositoryCardSkeleton } from "~/app/_components/RepositoryCardSkeleton";
 import { Suspense } from "react";
 
+// First, let's define the Repository type
+type Repository = {
+  id: string;
+  name: string;
+  fullName: string;
+  description: string | null;
+  url: string;
+  stars: number;
+  voteCount: number;
+};
+
 async function getLeaderboard() {
   return db.repository.findMany({
     orderBy: {
@@ -41,7 +52,15 @@ function RepositoryGrid({
   leaderboard,
   currentVoteId,
 }: {
-  leaderboard: any[];
+  leaderboard: {
+    id: string;
+    name: string;
+    fullName: string;
+    description: string | null;
+    url: string;
+    stars: number;
+    voteCount: number;
+  }[];
   currentVoteId: string | undefined;
 }) {
   return (
@@ -78,12 +97,12 @@ function RepositoryGrid({
   );
 }
 
-// Helper component to avoid repetition
+// Update the RepositoryContent component with proper typing
 function RepositoryContent({
   repo,
   currentVoteId,
 }: {
-  repo: any;
+  repo: Repository; // Replace 'any' with our Repository type
   currentVoteId: string | undefined;
 }) {
   return (
