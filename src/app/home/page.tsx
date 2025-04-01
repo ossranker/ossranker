@@ -188,10 +188,12 @@ export default async function HomePage() {
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3">
               {session.user?.image && (
-                <img
+                <Image
                   src={session.user.image}
                   alt={session.user.name ?? "Profile"}
-                  className="h-8 w-8 rounded-full ring-2 ring-gray-800"
+                  width={32}
+                  height={32}
+                  className="rounded-full ring-2 ring-gray-800"
                 />
               )}
               <span className="hidden text-sm font-medium text-gray-200 sm:inline">

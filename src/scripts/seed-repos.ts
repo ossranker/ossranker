@@ -60,6 +60,12 @@ async function seedRepositories() {
   console.log("Seeding completed!");
 }
 
-seedRepositories()
-  .catch(console.error)
-  .finally(() => db.$disconnect());
+void (async () => {
+  try {
+    await seedRepositories();
+  } catch (error: unknown) {
+    console.error(error);
+  } finally {
+    await db.$disconnect();
+  }
+})();

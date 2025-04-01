@@ -6,6 +6,12 @@ async function checkRepositories() {
   console.log("Repositories:", repos);
 }
 
-checkRepositories()
-  .catch(console.error)
-  .finally(() => db.$disconnect());
+void (async () => {
+  try {
+    await checkRepositories();
+  } catch (error: unknown) {
+    console.error(error);
+  } finally {
+    await db.$disconnect();
+  }
+})();
