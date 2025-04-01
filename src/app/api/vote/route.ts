@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "~/server/auth";
 import { db } from "~/server/db";
+import type { DailyVoteCount } from "@prisma/client";
 
 export async function POST(req: Request) {
   try {
@@ -9,19 +10,19 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { repoId } = await req.json();
+    const { repoId } = (await req.json()) as { repoId: string };
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
     // Get current daily vote
-    const dailyVote = await db.dailyVoteCount.findUnique({
+    const dailyVote = (await db.dailyVoteCount.findUnique({
       where: {
         userId_date: {
           userId: session.user.id,
           date: today,
         },
       },
-    });
+    }));
 
     // If changing vote, decrement previous repo's count
     if (dailyVote?.repositoryId && dailyVote.repositoryId !== repoId) {
@@ -59,7 +60,7 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Vote error:", error);
     return NextResponse.json(
       { error: "Failed to process vote" },

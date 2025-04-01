@@ -203,7 +203,7 @@ export default async function HomePage() {
         <Suspense fallback={<LoadingGrid />}>
           <RepositoryGrid
             leaderboard={leaderboard}
-            currentVoteId={currentVoteId}
+            currentVoteId={currentVoteId ?? undefined}
           />
         </Suspense>
       </div>

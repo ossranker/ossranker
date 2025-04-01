@@ -1,14 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-
-import { LatestPost } from "~/app/_components/post";
 import { auth } from "~/server/auth";
 import { HydrateClient } from "~/trpc/server";
 import { GitHubSignIn } from "~/app/_components/GitHubSignIn";
-import { api } from "~/trpc/server";
 import { PulsingBackground } from "~/app/_components/PulsingBackground";
-import { SignOutButton } from "~/app/_components/SignOutButton";
 
 export default async function LandingPage() {
   const session = await auth();
@@ -16,16 +12,6 @@ export default async function LandingPage() {
   // Redirect to home if already authenticated
   if (session) {
     redirect("/home");
-  }
-
-  // Only prefetch if we have a session
-  try {
-    if (session?.user) {
-      await api.post.getLatest.prefetch();
-    }
-  } catch (error) {
-    // Handle or log error if needed
-    console.error("Failed to prefetch latest post");
   }
 
   return (
@@ -47,24 +33,6 @@ export default async function LandingPage() {
                 priority
               />
             </Link>
-            {session?.user ? (
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-3">
-                  {session.user.image && (
-                    <img
-                      src={session.user.image}
-                      alt={session.user.name ?? "Profile"}
-                      className="h-8 w-8 rounded-full ring-2 ring-gray-800"
-                    />
-                  )}
-                  <span className="hidden text-sm font-medium text-gray-200 sm:inline">
-                    {session.user.name}
-                  </span>
-                </div>
-                <div className="h-6 w-px bg-gray-800" />
-                <SignOutButton />
-              </div>
-            ) : null}
           </div>
         </nav>
 
@@ -126,13 +94,6 @@ export default async function LandingPage() {
                 ))}
               </div>
             </div>
-          </div>
-        )}
-
-        {/* User Content Section */}
-        {session?.user && (
-          <div className="relative z-10 w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-            <LatestPost />
           </div>
         )}
 

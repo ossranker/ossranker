@@ -28,8 +28,8 @@ async function seedRepositories() {
       console.log(`Fetching ${fullName}...`);
 
       const { data } = await octokit.repos.get({
-        owner,
-        repo,
+        owner: owner ?? "",
+        repo: repo ?? "",
       });
 
       console.log(`Adding ${fullName} to database...`);
