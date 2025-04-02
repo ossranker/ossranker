@@ -2,6 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.animate-gradient-shift {
+  background-image: linear-gradient(
+    90deg,
+    #14b8a6 0%,
+    #6ee7b7 25%,
+    #10b981 50%,
+    #6ee7b7 75%,
+    #14b8a6 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  animation: gradient-shift 8s linear infinite;
+}
+
+.dark .animate-gradient-shift {
+  background-image: linear-gradient(
+    90deg,
+    #5eead4 0%,
+    #a7f3d0 25%,
+    #34d399 50%,
+    #a7f3d0 75%,
+    #5eead4 100%
+  );
+}
+
+@keyframes gradient-shift-dark {
+  0%,
+  100% {
+    background-image: linear-gradient(
+      to bottom right,
+      #5eead4,
+      #6ee7b7,
+      #86efac
+    );
+    background-position: 0% 50%;
+  }
+  25% {
+    background-image: linear-gradient(
+      to bottom right,
+      #5eead4,
+      #2dd4bf,
+      #6ee7b7
+    );
+    background-position: 50% 100%;
+  }
+  50% {
+    background-image: linear-gradient(
+      to bottom right,
+      #5eead4,
+      #2dd4bf,
+      #34d399
+    );
+    background-position: 100% 50%;
+  }
+  75% {
+    background-image: linear-gradient(
+      to bottom right,
+      #5eead4,
+      #6ee7b7,
+      #34d399
+    );
+    background-position: 50% 0%;
+  }
+}
+
+.animate-gradient-shift-dark {
+  animation: gradient-shift-dark 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  background-size: 200% 200%;
+}
+
 :root {
   --font-sans:
     var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,

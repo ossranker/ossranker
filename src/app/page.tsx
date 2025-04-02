@@ -98,7 +98,7 @@ export default async function LandingPage() {
         {/* Hero Section */}
         <div className="relative z-10 w-full px-4 py-12 sm:py-16 lg:py-20">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-4xl font-bold tracking-tight text-transparent dark:from-emerald-200 dark:to-emerald-400 sm:text-5xl lg:text-6xl">
+            <h1 className="animate-gradient-shift dark:animate-gradient-shift-dark bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl lg:text-6xl">
               Secure OSS Evaluate, Benchmark, Govern with Confidence
             </h1>
 
