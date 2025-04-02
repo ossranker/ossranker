@@ -99,8 +99,8 @@ export function VoteButton({
       disabled={isVoting}
       className={`relative flex min-w-[90px] cursor-pointer items-center justify-between gap-3 rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 disabled:cursor-not-allowed ${
         initialVoteState
-          ? "bg-emerald-500/20 text-emerald-400 ring-1 ring-emerald-500/50"
-          : "bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20"
+          ? "bg-teal-500/20 text-teal-500 ring-1 ring-teal-500/50 dark:text-teal-400 dark:ring-teal-400/50"
+          : "bg-teal-500/10 text-teal-500 hover:bg-teal-500/20 dark:text-teal-400 dark:hover:bg-teal-500/20"
       }`}
       whileHover={{ scale: 1.02 }}
     >
@@ -110,7 +110,7 @@ export function VoteButton({
             initial={{ opacity: 1 }}
             animate={{ opacity: 0 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 rounded-md bg-emerald-500/20"
+            className="absolute inset-0 rounded-md bg-teal-500/20"
           />
         )}
       </AnimatePresence>

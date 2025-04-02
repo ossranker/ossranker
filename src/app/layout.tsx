@@ -5,9 +5,9 @@ import { stackServerApp } from "../stack";
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Toaster } from "sonner";
-// import { Analytics } from "@vercel/analytics/react";
 
 import { TRPCReactProvider } from "~/trpc/react";
+import { Providers } from "~/app/providers";
 
 export const metadata: Metadata = {
   title: "OSSRanker",
@@ -25,13 +25,24 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable}`}>
-      <body><StackProvider app={stackServerApp}><StackTheme>
-        <TRPCReactProvider>
-          {children}
-          <Toaster position="top-right" theme="dark" closeButton richColors />
-        </TRPCReactProvider>
-      </StackTheme></StackProvider></body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={geist.variable}>
+        <StackProvider app={stackServerApp}>
+          <StackTheme>
+            <Providers>
+              <TRPCReactProvider>
+                {children}
+                <Toaster
+                  position="top-right"
+                  theme="dark"
+                  closeButton
+                  richColors
+                />
+              </TRPCReactProvider>
+            </Providers>
+          </StackTheme>
+        </StackProvider>
+      </body>
     </html>
   );
 }

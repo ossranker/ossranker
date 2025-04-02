@@ -1,7 +1,8 @@
 import { type Config } from "tailwindcss";
 
 export default {
-  // ... other config
+  darkMode: "class",
+  content: ["./src/**/*.tsx"],
   theme: {
     extend: {
       animation: {
