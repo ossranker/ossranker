@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { auth } from "~/server/auth";
 import { HydrateClient } from "~/trpc/server";
 import { GitHubSignIn } from "~/app/_components/GitHubSignIn";
+import { TwitterSignIn } from "~/app/_components/TwitterSignIn";
 import { ThemeToggle } from "~/app/_components/ThemeToggle";
 
 export default async function LandingPage() {
@@ -108,7 +109,12 @@ export default async function LandingPage() {
             </p>
 
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              {!session && <GitHubSignIn />}
+              {!session && (
+                <>
+                  <GitHubSignIn />
+                  <TwitterSignIn />
+                </>
+              )}
             </div>
           </div>
         </div>
