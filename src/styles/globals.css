@@ -14,11 +14,11 @@
 .animate-gradient-shift {
   background-image: linear-gradient(
     90deg,
-    #14b8a6 0%,
-    #6ee7b7 25%,
-    #10b981 50%,
-    #6ee7b7 75%,
-    #14b8a6 100%
+    #0d9488 0%,
+    #14b8a6 25%,
+    #0f766e 50%,
+    #14b8a6 75%,
+    #0d9488 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -83,6 +83,63 @@
   background-size: 200% 200%;
 }
 
+/* Web3 Gradients */
+.web3-gradient-bg {
+  background: linear-gradient(
+    120deg,
+    rgba(38, 38, 38, 0.8) 0%,
+    rgba(13, 148, 136, 0.6) 100%
+  );
+}
+
+.dark .web3-gradient-bg {
+  background: linear-gradient(
+    120deg,
+    rgba(17, 24, 39, 0.95) 0%,
+    rgba(13, 148, 136, 0.7) 100%
+  );
+}
+
+.web3-card-border {
+  position: relative;
+  z-index: 0;
+}
+
+.web3-card-border::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -1px;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, #0d9488, #0ea5e9, #8b5cf6);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.web3-card-border:hover::before {
+  opacity: 1;
+}
+
+.web3-glow {
+  box-shadow: 0 0 15px rgba(13, 148, 136, 0.3);
+}
+
+.dark .web3-glow {
+  box-shadow: 0 0 20px rgba(20, 184, 166, 0.25);
+}
+
+.web3-dot-pattern {
+  background-image: radial-gradient(circle, #0d9488 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.15;
+}
+
 :root {
   --font-sans:
     var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
@@ -112,4 +169,29 @@
 .animate-gradient-xy {
   animation: gradient-xy 15s ease infinite;
   background-size: 400% 400%;
+}
+
+/* Web3 floating elements animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating-element {
+  animation: float 5s ease-in-out infinite;
+}
+
+.floating-element-delay-1 {
+  animation: float 6s ease-in-out 1s infinite;
+}
+
+.floating-element-delay-2 {
+  animation: float 7s ease-in-out 2s infinite;
 }
