@@ -12,14 +12,7 @@
 }
 
 .animate-gradient-shift {
-  background-image: linear-gradient(
-    90deg,
-    #0d9488 0%,
-    #14b8a6 25%,
-    #0f766e 50%,
-    #14b8a6 75%,
-    #0d9488 100%
-  );
+  background-image: linear-gradient(90deg, #0d9488 0%, #14b8a6 25%, #0f766e 50%, #14b8a6 75%, #0d9488 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -28,52 +21,25 @@
 }
 
 .dark .animate-gradient-shift {
-  background-image: linear-gradient(
-    90deg,
-    #5eead4 0%,
-    #a7f3d0 25%,
-    #34d399 50%,
-    #a7f3d0 75%,
-    #5eead4 100%
-  );
+  background-image: linear-gradient(90deg, #5eead4 0%, #a7f3d0 25%, #34d399 50%, #a7f3d0 75%, #5eead4 100%);
 }
 
 @keyframes gradient-shift-dark {
   0%,
   100% {
-    background-image: linear-gradient(
-      to bottom right,
-      #5eead4,
-      #6ee7b7,
-      #86efac
-    );
+    background-image: linear-gradient(to bottom right, #5eead4, #6ee7b7, #86efac);
     background-position: 0% 50%;
   }
   25% {
-    background-image: linear-gradient(
-      to bottom right,
-      #5eead4,
-      #2dd4bf,
-      #6ee7b7
-    );
+    background-image: linear-gradient(to bottom right, #5eead4, #2dd4bf, #6ee7b7);
     background-position: 50% 100%;
   }
   50% {
-    background-image: linear-gradient(
-      to bottom right,
-      #5eead4,
-      #2dd4bf,
-      #34d399
-    );
+    background-image: linear-gradient(to bottom right, #5eead4, #2dd4bf, #34d399);
     background-position: 100% 50%;
   }
   75% {
-    background-image: linear-gradient(
-      to bottom right,
-      #5eead4,
-      #6ee7b7,
-      #34d399
-    );
+    background-image: linear-gradient(to bottom right, #5eead4, #6ee7b7, #34d399);
     background-position: 50% 0%;
   }
 }
@@ -85,19 +51,11 @@
 
 /* Web3 Gradients */
 .web3-gradient-bg {
-  background: linear-gradient(
-    120deg,
-    rgba(38, 38, 38, 0.8) 0%,
-    rgba(13, 148, 136, 0.6) 100%
-  );
+  background: linear-gradient(120deg, rgba(38, 38, 38, 0.8) 0%, rgba(13, 148, 136, 0.6) 100%);
 }
 
 .dark .web3-gradient-bg {
-  background: linear-gradient(
-    120deg,
-    rgba(17, 24, 39, 0.95) 0%,
-    rgba(13, 148, 136, 0.7) 100%
-  );
+  background: linear-gradient(120deg, rgba(17, 24, 39, 0.95) 0%, rgba(13, 148, 136, 0.7) 100%);
 }
 
 .web3-card-border {
@@ -113,9 +71,7 @@
   padding: 1px;
   border-radius: inherit;
   background: linear-gradient(120deg, #0d9488, #0ea5e9, #8b5cf6);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0.4;
@@ -141,15 +97,12 @@
 }
 
 :root {
-  --font-sans:
-    var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 /* Add smooth transitions for theme changes */
 * {
-  transition-property:
-    color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
 }

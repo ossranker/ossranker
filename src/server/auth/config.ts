@@ -1,10 +1,10 @@
-import { PrismaAdapter } from "@auth/prisma-adapter";
-import { type DefaultSession, type NextAuthConfig } from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
-import GitHubProvider from "next-auth/providers/github";
-import TwitterProvider from "next-auth/providers/twitter";
+import { PrismaAdapter } from "@auth/prisma-adapter"
+import { type DefaultSession, type NextAuthConfig } from "next-auth"
+import DiscordProvider from "next-auth/providers/discord"
+import GitHubProvider from "next-auth/providers/github"
+import TwitterProvider from "next-auth/providers/twitter"
 
-import { db } from "~/server/db";
+import { db } from "~/server/db"
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -15,10 +15,10 @@ import { db } from "~/server/db";
 declare module "next-auth" {
   interface Session extends DefaultSession {
     user: {
-      id: string;
+      id: string
       // ...other properties
       // role: UserRole;
-    } & DefaultSession["user"];
+    } & DefaultSession["user"]
   }
 
   // interface User {
@@ -37,12 +37,12 @@ export const authConfig = {
     DiscordProvider,
     GitHubProvider({
       clientId: process.env.GITHUB_CLIENT_ID!,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET!
     }),
     TwitterProvider({
       clientId: process.env.TWITTER_CLIENT_ID!,
-      clientSecret: process.env.TWITTER_CLIENT_SECRET!,
-    }),
+      clientSecret: process.env.TWITTER_CLIENT_SECRET!
+    })
     /**
      * ...add more providers here.
      *
@@ -59,8 +59,8 @@ export const authConfig = {
       ...session,
       user: {
         ...session.user,
-        id: user.id,
-      },
-    }),
-  },
-} satisfies NextAuthConfig;
+        id: user.id
+      }
+    })
+  }
+} satisfies NextAuthConfig

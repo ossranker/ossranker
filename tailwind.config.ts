@@ -1,4 +1,4 @@
-import { type Config } from "tailwindcss";
+import { type Config } from "tailwindcss"
 
 export default {
   darkMode: "class",
@@ -9,8 +9,8 @@ export default {
         "pulse-slow": "pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "pulse-slower": "pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "pulse-medium": "pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "pulse-fast": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-      },
-    },
-  },
-} satisfies Config;
+        "pulse-fast": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite"
+      }
+    }
+  }
+} satisfies Config

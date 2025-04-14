@@ -1,23 +1,23 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { useTheme } from "next-themes";
+import * as React from "react"
+import { useTheme } from "next-themes"
 
 export function ThemeToggle() {
-  const [mounted, setMounted] = React.useState(false);
-  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false)
+  const { theme, setTheme } = useTheme()
 
   // Avoid hydration mismatch
-  React.useEffect(() => setMounted(true), []);
+  React.useEffect(() => setMounted(true), [])
 
   const toggleTheme = () => {
-    console.log("Current theme:", theme);
-    const newTheme = theme === "dark" ? "light" : "dark";
-    console.log("Switching to:", newTheme);
-    setTheme(newTheme);
-  };
+    console.log("Current theme:", theme)
+    const newTheme = theme === "dark" ? "light" : "dark"
+    console.log("Switching to:", newTheme)
+    setTheme(newTheme)
+  }
 
-  if (!mounted) return null;
+  if (!mounted) return null
 
   return (
     <button
@@ -26,13 +26,7 @@ export function ThemeToggle() {
       aria-label="Toggle theme"
     >
       {theme === "dark" ? (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          className="h-5 w-5"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-5 w-5">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -41,21 +35,10 @@ export function ThemeToggle() {
           />
         </svg>
       ) : (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          className="h-5 w-5"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-          />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-5 w-5">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
         </svg>
       )}
     </button>
-  );
+  )
 }

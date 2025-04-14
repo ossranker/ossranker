@@ -29,5 +29,5 @@ export function RepositoryCardSkeleton() {
         <div className="h-8 w-20 animate-pulse rounded-md bg-gray-800" />
       </div>
     </div>
-  );
+  )
 }
