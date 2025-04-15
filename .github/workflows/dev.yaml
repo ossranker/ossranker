@@ -15,6 +15,7 @@ jobs:
       SKIP_ENV_VALIDATION: 1
       NEXT_PUBLIC_STACK_PROJECT_ID: 4e30732f-9da3-4593-b938-d3bb3938cd59
       NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY: pck_aq7tkqebk4mdxcgxfhybfrk25tdhjrf5n8ztc0g57prpr
+      STACK_SECRET_SERVER_KEY: ${{ secrets.STACK_SECRET_SERVER_KEY }}
       NEXT_PUBLIC_SITE_URL: https://alpha.ossranker.io/
       NEXT_PUBLIC_GIT_SHA: ${{ github.sha }}
     steps:
