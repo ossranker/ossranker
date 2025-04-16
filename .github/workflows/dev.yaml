@@ -109,3 +109,6 @@ jobs:
           APP_NAME="${{ needs.build.outputs.app_name }}"
           IMAGE_TAG="${{ needs.build.outputs.tag }}"
           IMAGE_NAME="${{ env.IMAGE_REPO }}/${APP_NAME}:${IMAGE_TAG}"
+
+          kubectl set image deployment/${APP_NAME} ${APP_NAME}=${IMAGE_NAME} -n ${{ env.GKE_CLUSTER_NAMESPACE }} --record=true
+          kubectl rollout restart deployment/${APP_NAME} -n ${{ env.GKE_CLUSTER_NAMESPACE }}
